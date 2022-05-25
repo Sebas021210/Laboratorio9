@@ -12,10 +12,16 @@ main:
     bl done
 
     init:
-        ldr r4,#0
+        ldr r4,=contador
+        ldr r4,[r4]
 
+        bl inicializacion    
 
     inicializacion:
+        ldr	r0, #250
+	    ldr	r0, [r0]
+	    bl	delay
+
         // setting wpi 0 to 7 as ou
         mov r0, #0 // wpi 0 --> a
         mov r1, #1
@@ -48,6 +54,52 @@ main:
         mov r0, #8 // wpi 8 --> Input
         mov r1, #0
         bl pinMode
+
+        ldr r6,=contador
+        ldr r6,[r6]
+
+    comp:
+        mov r6, #0
+
+    try: 
+        cmp r6,#21
+        beq comp
+        
+        ldr	r0, =delayMs
+	    ldr	r0, [r0]
+	    bl	delay
+	
+        ldr	r0, =pin1				// carga dirección de pin
+        ldr	r0, [r0]				// operaciones anteriores borraron valor de pin en r0
+        bl 	digitalRead				// escribe 1 en pin para activar puerto GPIO
+
+        add r6,#1
+
+        cmp	r0,#1
+        beq	try
+        bne siguiente
+
+        
+
+    siguiente:
+        mul r6,r6,4
+        lst .req r7
+        posci .req r6
+        letra .req r8
+
+        ldr lst, =letras
+        add lst,lst,posci
+
+        ldr letra,[lst]
+
+        cmp
+
+        .unreq lst
+        .unreq posci
+
+
+
+        
 
     A:
         // Primer estado
@@ -423,4 +475,8 @@ letras:
     .byte "a","b","c","d","e","f","g","h","i","j","l","n","o","p","q","r","s","u","v","x","y","z"
 generadas:
     .byte "","","","","","","","","","","","","","",""
+contador: 
+    .word 0
+pseudo:
+    .word 0
 .align 2
