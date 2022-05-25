@@ -1355,6 +1355,4 @@ generadas:
     .byte "","","","","","","","","","","","","","",""
 contador: 
     .word 0
-pseudo:
-    .word 0
 .align 2
