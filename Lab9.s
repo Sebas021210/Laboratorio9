@@ -55,8 +55,13 @@ main:
         mov r1, #0
         bl pinMode
 
-        ldr r6,=contador
-        ldr r6,[r6]
+        ldr r10,=contador
+        ldr r10,[r10]
+
+    forLoop:
+        cmp r10,#15
+        bne try
+        beq done
 
     comp:
         mov r6, #0
@@ -92,17 +97,76 @@ main:
 
         ldr letra,[lst]
 
-        cmp
+        cmp letra,"a"
+        beq A
+
+        cmp letra,"b"
+        beq letB
+
+        cmp letra,"c"
+        beq C
+
+        cmp letra,"d"
+        beq D 
+
+        cmp letra,"e"
+        beq E 
+
+        cmp letra,"f"
+        beq F 
+
+        cmp letra,"g"
+        beq G 
+
+        cmp letra,"h"
+        beq H 
+        
+        cmp letra,"i"
+        beq I 
+        
+        cmp letra,"j"
+        beq J 
+
+        cmp letra,"l"
+        beq L 
+
+        cmp letra,"n"
+        beq N 
+
+        cmp letra,"o"
+        beq O 
+
+        cmp letra,"p"
+        beq P 
+
+        cmp letra,"q"
+        beq Q 
+
+        cmp letra,"r"
+        beq R 
+
+        cmp letra,"s"
+        beq S 
+
+        cmp letra,"u"
+        beq U 
+
+        cmp letra,"x"
+        beq X 
+
+        cmp letra,"y"
+        beq Y 
+
+        cmp letra,"z"
+        beq z
+
+        add r10,#1
+        bl forLoop
 
         .unreq lst
         .unreq posci
 
-
-
-        
-
     A:
-        // Primer estado
         mov r0,#0
         mov r1,#1
         bl digitalWrite
@@ -161,8 +225,7 @@ main:
         mov r0,#200
         bl delay
 
-    B:
-        // Segundo Estado  
+    letB: 
         mov r0,#2
         mov r1,#1
         bl digitalWrite
@@ -217,7 +280,6 @@ main:
         mov r0,#200
         bl delay
     C:
-        // Tercer estado
         mov r0,#0
         mov r1,#1
         bl digitalWrite
@@ -268,7 +330,6 @@ main:
         mov r0,#200
         bl delay
     D:
-        // Cuarto estado
         mov r0,#1
         mov r1,#1
         bl digitalWrite
@@ -323,7 +384,6 @@ main:
         mov r0,#200
         bl delay
     E:
-        // Quinto estado
         mov r0,#0
         mov r1,#1
         bl digitalWrite
@@ -379,7 +439,6 @@ main:
         bl delay
 
     F:
-        //Sexto estado f
         mov r0,#0
         mov r1,#1
         bl digitalWrite
@@ -430,10 +489,231 @@ main:
         mov r0,#200
         bl delay
         
+   G:
+        mov r0,#0
+        mov r1,#1
+        bl digitalWrite
 
 
+        mov r0,#2
+        mov r1,#1
+        bl digitalWrite
 
-    apagado:
+        mov r0,#3
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#4
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#6
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#500
+        bl delay
+
+        mov r0,#0
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#1
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#2
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#3
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#4
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#6
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#200
+        bl delay
+
+   H:
+        mov r0,#2
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#3
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#4
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#6
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#500
+        bl delay
+
+        mov r0,#0
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#1
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#2
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#3
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#4
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#6
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#200
+        bl delay
+
+   I:
+        mov r0,#1
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#2
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#500
+        bl delay
+
+        mov r0,#0
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#1
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#2
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#3
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#4
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#6
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#200
+        bl delay
+
+   J:
+        mov r0,#0
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#1
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#2
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#3
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#500
+        bl delay
+
+        mov r0,#0
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#1
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#2
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#3
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#4
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#6
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#200
+        bl delay
+
+   L:
+        mov r0,#3
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#4
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#500
+        bl delay
+
         mov r0,#0
         mov r1,#0
         bl digitalWrite
@@ -466,6 +746,604 @@ main:
         bl delay
 
 
+
+   N:
+        mov r0,#0
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#1
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#2
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#4
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#500
+        bl delay
+
+        mov r0,#0
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#1
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#2
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#3
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#4
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#6
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#200
+        bl delay
+
+   O:
+        mov r0,#0
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#1
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#2
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#3
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#4
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#500
+        bl delay
+
+        mov r0,#0
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#1
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#2
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#3
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#4
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#6
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#200
+        bl delay
+
+    P:
+        mov r0,#0
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#1
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#4
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#6
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#500
+        bl delay
+
+        mov r0,#0
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#1
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#2
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#3
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#4
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#6
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#7
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#200
+        bl delay
+
+    Q:
+        mov r0,#0
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#1
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#2
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#6
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#500
+        bl delay
+
+        mov r0,#0
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#1
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#2
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#3
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#4
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#6
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#7
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#200
+        bl delay
+
+    R:
+        mov r0,#0
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#1
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#2
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#4
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#6
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#7
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#500
+        bl delay
+
+        mov r0,#0
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#1
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#2
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#3
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#4
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#6
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#7
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#200
+        bl delay 
+
+    S:
+        mov r0,#0
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#2
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#3
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#6
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#500
+        bl delay
+
+        mov r0,#0
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#1
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#2
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#3
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#4
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#6
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#7
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#200
+        bl delay
+
+    U:
+        mov r0,#1
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#2
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#3
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#4
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#500
+        bl delay
+
+        mov r0,#0
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#1
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#2
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#3
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#4
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#6
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#7
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#200
+        bl delay
+
+    V:
+        mov r0,#1
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#2
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#3
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#4
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#7
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#500
+        bl delay
+
+        mov r0,#0
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#1
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#2
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#3
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#4
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#6
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#7
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#200
+        bl delay
+
+    Y:
+        mov r0,#1
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#2
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#3
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#6
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#500
+        bl delay
+
+        mov r0,#0
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#1
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#2
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#3
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#4
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#6
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#7
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#200
+        bl delay
+
+    Z:
+        mov r0,#0
+        mov r1,#1
+        bl digitalWrite
+        
+        mov r0,#1
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#3
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#4
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#6
+        mov r1,#1
+        bl digitalWrite
+
+        mov r0,#500
+        bl delay
+
+        mov r0,#0
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#1
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#2
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#3
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#4
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#5
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#6
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#7
+        mov r1,#0
+        bl digitalWrite
+
+        mov r0,#200
+        bl delay
 
     done:
         pop {ip, pc}  
