@@ -7,7 +7,7 @@
 .extern pinMode
 main:
     push 	{ip, lr}
-    bl	wiringPiSetup
+    bl wiringPiSetup
     bl init
     bl done
     
@@ -97,19 +97,19 @@ main:
         lst .req r7
         posci .req r11
         letra .req r8
-        mov r12, #4
+        //mov r12, #4
         //mul posci,r6,r12
         
         ldr lst, =letras
         add lst,lst,posci
         ldrb letra,[lst]
-        
+        /*
         mov r0,#0
         mov r1,#1
         bl digitalWrite
 
         mov r0,#500
-        bl delay
+        bl delay*/
         
         cmp letra,#'a'
         beq A
@@ -171,7 +171,7 @@ main:
         cmp letra,#'z'
         beq Z
 
-        add r10,#1
+        add r4,#1
         bl forLoop
 
         .unreq lst
