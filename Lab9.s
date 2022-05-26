@@ -97,67 +97,67 @@ main:
 
         ldr letra,[lst]
 
-        cmp letra,"a"
+        cmp letra,#"a"
         beq A
 
-        cmp letra,"b"
+        cmp letra,#"b"
         beq letB
 
-        cmp letra,"c"
+        cmp letra,#"c"
         beq C
 
-        cmp letra,"d"
+        cmp letra,#"d"
         beq D 
 
-        cmp letra,"e"
+        cmp letra,#"e"
         beq E 
 
-        cmp letra,"f"
+        cmp letra,#"f"
         beq F 
 
-        cmp letra,"g"
+        cmp letra,#"g"
         beq G 
 
-        cmp letra,"h"
+        cmp letra,#"h"
         beq H 
         
-        cmp letra,"i"
+        cmp letra,#"i"
         beq I 
         
-        cmp letra,"j"
+        cmp letra,#"j"
         beq J 
 
-        cmp letra,"l"
+        cmp letra,#"l"
         beq L 
 
-        cmp letra,"n"
+        cmp letra,#"n"
         beq N 
 
-        cmp letra,"o"
+        cmp letra,#"o"
         beq O 
 
-        cmp letra,"p"
+        cmp letra,#"p"
         beq P 
 
-        cmp letra,"q"
+        cmp letra,#"q"
         beq Q 
 
-        cmp letra,"r"
+        cmp letra,#"r"
         beq R 
 
-        cmp letra,"s"
+        cmp letra,#"s"
         beq S 
 
-        cmp letra,"u"
+        cmp letra,#"u"
         beq U 
 
-        cmp letra,"x"
+        cmp letra,#"x"
         beq X 
 
-        cmp letra,"y"
+        cmp letra,#"y"
         beq Y 
 
-        cmp letra,"z"
+        cmp letra,#"z"
         beq z
 
         add r10,#1
