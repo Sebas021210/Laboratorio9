@@ -87,7 +87,7 @@ main:
         
 
     siguiente:
-        mul r6,r6,4
+        mul r6,r6,#4
         lst .req r7
         posci .req r6
         letra .req r8
