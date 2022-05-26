@@ -10,17 +10,19 @@ main:
     bl	wiringPiSetup
     bl init
     bl done
-
+    
     init:
         ldr r4,=contador
         ldr r4,[r4]
-
+        
         bl inicializacion    
 
     inicializacion:
-        ldr	r0, #250
+        /*ldr	r0, #250
 	    ldr	r0, [r0]
-	    bl	delay
+	    bl	delay*/
+
+        
 
         // setting wpi 0 to 7 as ou
         mov r0, #0 // wpi 0 --> a
@@ -51,15 +53,20 @@ main:
         mov r1, #1
         bl pinMode
 
+        mov r0, #7 // wpi 7 --> p
+        mov r1, #1
+        bl pinMode
+
         mov r0, #8 // wpi 8 --> Input
         mov r1, #0
         bl pinMode
-
-        ldr r10,=contador
-        ldr r10,[r10]
+        
+        bl forLoop
 
     forLoop:
-        cmp r10,#15
+        
+
+        cmp r4,#15
         bne try
         beq done
 
@@ -70,95 +77,99 @@ main:
         cmp r6,#21
         beq comp
         
-        ldr	r0, =delayMs
-	    ldr	r0, [r0]
+        mov	r0, #250
 	    bl	delay
 	
-        ldr	r0, =pin1				// carga dirección de pin
-        ldr	r0, [r0]				// operaciones anteriores borraron valor de pin en r0
+        mov	r0, #8				// carga dirección de pin
         bl 	digitalRead				// escribe 1 en pin para activar puerto GPIO
-
+        
         add r6,#1
-
+        
         cmp	r0,#1
-        beq	try
         bne siguiente
+        beq	try
+        
 
         
 
     siguiente:
-        mul r6,r6,#"4"
+        
         lst .req r7
-        posci .req r6
+        posci .req r11
         letra .req r8
-
+        mov r12, #4
+        //mul posci,r6,r12
+        
         ldr lst, =letras
         add lst,lst,posci
+        ldrb letra,[lst]
+        
+        mov r0,#0
+        mov r1,#1
+        bl digitalWrite
 
-        ldr letra,[lst]
-
-        cmp letra,#"a"
+        mov r0,#500
+        bl delay
+        
+        cmp letra,#'a'
         beq A
 
-        cmp letra,#"b"
+        cmp letra,#'b'
         beq letB
 
-        cmp letra,#"c"
+        cmp letra,#'c'
         beq C
 
-        cmp letra,#"d"
+        cmp letra,#'d'
         beq D 
 
-        cmp letra,#"e"
+        cmp letra,#'e'
         beq E 
 
-        cmp letra,#"f"
+        cmp letra,#'f'
         beq F 
 
-        cmp letra,#"g"
+        cmp letra,#'g'
         beq G 
 
-        cmp letra,#"h"
+        cmp letra,#'h'
         beq H 
         
-        cmp letra,#"i"
+        cmp letra,#'i'
         beq I 
         
-        cmp letra,#"j"
+        cmp letra,#'j'
         beq J 
 
-        cmp letra,#"l"
+        cmp letra,#'l'
         beq L 
 
-        cmp letra,#"n"
+        cmp letra,#'n'
         beq N 
 
-        cmp letra,#"o"
+        cmp letra,#'o'
         beq O 
 
-        cmp letra,#"p"
+        cmp letra,#'p'
         beq P 
 
-        cmp letra,#"q"
+        cmp letra,#'q'
         beq Q 
 
-        cmp letra,#"r"
+        cmp letra,#'r'
         beq R 
 
-        cmp letra,#"s"
+        cmp letra,#'s'
         beq S 
 
-        cmp letra,#"u"
+        cmp letra,#'u'
         beq U 
 
-        cmp letra,#"x"
-        beq X 
-
-        cmp letra,#"y"
+        cmp letra,#'y'
         beq Y 
 
-        cmp letra,#"z"
-        beq z
+        cmp letra,#'z'
+        beq Z
 
         add r10,#1
         bl forLoop
@@ -1349,10 +1360,9 @@ main:
         pop {ip, pc}  
         
 .data
+.balign 4
 letras:
-    .byte "a","b","c","d","e","f","g","h","i","j","l","n","o","p","q","r","s","u","v","x","y","z"
-generadas:
-    .byte "","","","","","","","","","","","","","",""
+    .byte 'a','b','c','d','e','f','g','h','i','j','l','n','o','p','q','r','s','u','v','x','y','z'
 contador: 
     .word 0
 .align 2
